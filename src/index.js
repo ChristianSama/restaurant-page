@@ -1,10 +1,18 @@
 import Logo from './eagle.png'
+import HomePlate from './gyoza.jpg'
 import './style.css'
 
 function loadLogo() {
   const img = new Image()
   img.src = Logo 
   img.classList.add('logo')
+  return img
+}
+
+function loadHomePlate() {
+  const img = new Image()
+  img.src = HomePlate
+  img.classList.add('home-plate')
   return img
 }
 
@@ -29,8 +37,7 @@ function loadDescription() {
   return description
 }
 
-const content = document.querySelector('#content')
-content.appendChild(loadLogo())
-content.appendChild(loadTitle())
-content.appendChild(loadHeadline())
-content.appendChild(loadDescription())
+document.body.appendChild(loadHomePlate())
+
+const brand = document.querySelector('.brand')
+brand.appendChild(loadLogo())
