@@ -32,23 +32,33 @@ function createLogo() {
   return img
 }
 
-function createHomeImg() {
+function createImgWithText(imgSrc, textElement) {
+  const container = document.createElement('div')
+  container.classList.add('container')
+
   const img = new Image()
-  img.src = HomePlate
+  img.src = imgSrc
   img.classList.add('home-plate')
-  return img
+
+  const overlay = document.createElement('div')
+  overlay.classList.add('overlay')
+
+  container.appendChild(img)
+  container.appendChild(overlay)
+  container.appendChild(textElement)
+  return container
 }
 
 function createTitle() {
   const title = document.createElement('h1')
-  title.textContent = 'La Guarida del Aguila'
+  title.textContent = 'The Eagle\'s den'
   title.classList.add('title')
   return title
 }
 
 function createHeadline() {
   const headline = document.createElement('h2')
-  headline.textContent = 'El nido de la buena cocina'
+  headline.textContent = 'Where delightful flavors are born'
   headline.classList.add('headline')
   return headline
 }
@@ -60,10 +70,20 @@ function createDescription() {
   return description
 }
 
+function createDiv(cssClass, ...elements) {
+  const div = document.createElement('div')
+  if (cssClass) {
+    div.classList.add(cssClass)
+  }
+  for (let el of elements) {
+    div.appendChild(el)
+  }
+  return div
+}
+
 document.body.prepend(createNavBar())
-
-const content = document.querySelector('#content')
-content.appendChild(createHomeImg())
-
 const brand = document.querySelector('.brand')
 brand.appendChild(createLogo())
+
+const content = document.querySelector('#content')
+content.appendChild(createImgWithText(HomePlate, createDiv('title-text', createTitle(), createHeadline())))
