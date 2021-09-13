@@ -1,27 +1,22 @@
 import Logo from './eagle.png'
 import HomePlate from './platillo1_cropped.jpg'
 import './style.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 function createNavBar() {
   const nav = document.createElement('nav')
   nav.innerHTML = 
-    `<ul>
-      <li>
-        HOME
-      </li>
-      <li>
-        ABOUT
-      </li>
-      <li>
-        <div class="brand"></div>
-      </li>
-      <li>
-        MENU
-      </li>
-      <li>
-        CONTACT US
-      </li>
-    </ul>`
+        `<a href="#home" class="home-link active">Home</a>
+        <a href="#" class="about-link">About Us</a>
+        <a href="#home" class="brand-link">
+          <div class="brand"></div>
+        </a>
+        <a href="#" class="menu-link">Menu</a>
+        <a href="#" class="contact-link">Contact Us</a>
+        <a class="burger-icon">
+          <i class="fa fa-bars"></i>
+        </a>`
   return nav
 }
 
@@ -87,3 +82,4 @@ brand.appendChild(createLogo())
 
 const content = document.querySelector('#content')
 content.appendChild(createImgWithText(HomePlate, createDiv('title-text', createTitle(), createHeadline())))
+content.appendChild(createDiv('description-layout', createDescription()))
