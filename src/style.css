@@ -1,6 +1,11 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 nav {
@@ -8,8 +13,8 @@ nav {
   margin: 1rem auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
   overflow: hidden;
 }
 
@@ -27,26 +32,19 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.burger-icon {
+nav a:not(:first-child) {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  nav {
-    width: 100%;
-    justify-content: space-between;
-  }
-  nav a:not(:first-child) {
-    display: none;
-  }
-  nav a.burger-icon {
-    margin-right: 1rem;
-    display: block;
-  }
-  .home-link {
-    margin-left: 1rem;
-  }
+.burger-icon {
+  margin-right: 1rem;
+  display: block;
 }
+
+.home-link {
+  margin-left: 1rem;
+}
+
 
 .logo {
   display: block;
@@ -95,6 +93,30 @@ nav a:hover {
 }
 
 .description-layout {
-  display:flex;
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+} 
 
+.description-layout p {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    justify-content: space-around;
+  }
+  .burger-icon {
+    display: none;
+  }
+  nav a:not(:first-child) {
+    display: block;
+  }
+  .description-layout {
+    flex-direction: row;
+  }
+  .description-layout p {
+    margin: 1rem 3rem;
+  }
 }
