@@ -9,22 +9,13 @@ function createNavBar() {
   const nav = document.createElement('nav');
   nav.appendChild(createHomeLink());
   nav.appendChild(createAboutLink());
-  nav.appendChild(createBrandLink())
-  nav.appendChild(createMenuLink())
-  nav.appendChild(createContactLink())
-  nav.innerHTML = 
-        `<a href="#home" class="home-link active">Home</a>
-        <a href="#" class="about-link">About Us</a>
-        <a href="#home" class="brand-link">
-          <div class="brand"></div>
-        </a>
-        <a href="#" class="menu-link">Menu</a>
-        <a href="#" class="contact-link">Contact Us</a>
-        <button class="burger-icon">
-          <i class="fa fa-bars"></i>
-        </button>`;
+  nav.appendChild(createBrandLink());
+  nav.appendChild(createMenuLink());
+  nav.appendChild(createContactLink());
+  nav.appendChild(createExpandButton());
   return nav;
 }
+
 function createHomeLink() {
   const homeLink = document.createElement('a');
   homeLink.classList.add('home-link');
@@ -40,25 +31,44 @@ function createHomeLink() {
 function createAboutLink() {
   const aboutLink = document.createElement('a');
   aboutLink.classList.add('about-link');
-  aboutLink.textContent = 'About us'
+  aboutLink.textContent = 'About us';
   aboutLink.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
-    aboutLink.classList.add('active')
+    aboutLink.classList.add('active');
     loadAbout();
   })
+  return aboutLink;
+}
+
+function createMenuLink() {
+  const menuLink = document.createElement('a');
+  menuLink.classList.add('menu-link');
+  menuLink.textContent = 'Menu';
+  menuLink.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    menuLink.classList.add('active');
+    loadMenu();
+  })
+  return menuLink;
+}
+
+function createContactLink() {
+  const contactLink = document.createElement('a');
+  contactLink.classList.add('contact-link');
+  contactLink.textContent = 'Contact us';
+  contactLink.addEventListener('click', (e) => {
+    if  (e.target.classLink.contains('active')) return;
+    contactLink.classList.add('active');
+    loadContact();
+  })
+  return contactLink;
 }
 
 function createBrandLink() {
   const brandLink = document.createElement('a');
-  brandLink
-}
-
-function createMenuLink() {
-
-}
-
-function createContactLink() {
-
+  brandLink.classList.add('brand-link');
+  brandLink.appendChild(createLogo());
+  return brandLink;
 }
 
 function createLogo() {
@@ -68,9 +78,18 @@ function createLogo() {
   return img;
 }
 
-document.body.prepend(createNavBar());
-const brand = document.querySelector('.brand');
-brand.appendChild(createLogo());
+function createExpandButton() {
+  const button = document.createElement('button');
+  button.classList.add('burger-icon');
+  button.innerHTML = '<i class="fa fa-bars"></i>';
+  return button;
+}
 
-const content = document.querySelector('#content');
-content.appendChild(loadHome());
+function buildPage() {
+  document.body.prepend(createNavBar());
+  const content = document.querySelector('#content');
+  content.appendChild(loadHome());
+}
+
+buildPage()
+
