@@ -2,8 +2,8 @@ import Logo from './eagle.png';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
-import loadHome from './home';
-import createHome from './home';
+import Home from './home';
+import About from './about';
 
 function createNavBar() {
   const nav = document.createElement('nav');
@@ -22,8 +22,8 @@ function createHomeLink() {
   homeLink.textContent = 'Home';
   homeLink.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
-    homeLink.classList.add('active');
-    loadHome();
+    loadPage(Home());
+    setActiveLink(homeLink)
   })
   return homeLink;
 }
@@ -34,8 +34,8 @@ function createAboutLink() {
   aboutLink.textContent = 'About us';
   aboutLink.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
-    aboutLink.classList.add('active');
-    loadAbout();
+    loadPage(About());
+    setActiveLink(aboutLink);
   })
   return aboutLink;
 }
@@ -46,8 +46,8 @@ function createMenuLink() {
   menuLink.textContent = 'Menu';
   menuLink.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
-    menuLink.classList.add('active');
-    loadMenu();
+    loadPage(Menu());
+    setActiveLink(menuLink());
   })
   return menuLink;
 }
@@ -58,8 +58,8 @@ function createContactLink() {
   contactLink.textContent = 'Contact us';
   contactLink.addEventListener('click', (e) => {
     if  (e.target.classLink.contains('active')) return;
-    contactLink.classList.add('active');
-    loadContact();
+    loadPage(Contact());
+    setActiveLink(contactLink());
   })
   return contactLink;
 }
@@ -85,10 +85,29 @@ function createExpandButton() {
   return button;
 }
 
+function clearPage() { 
+  const content = document.querySelector('#content');
+  content.innerHTML = '';
+}
+
+function loadPage(page) {
+  clearPage();
+  const content = document.querySelector('#content');
+  content.appendChild(page);
+}
+
+function setActiveLink(link) {
+  const links = document.querySelectorAll('nav a');
+  for (let l of links) {
+    l.classList.remove('active');
+  }
+  link.classList.add('active');
+}
+
 function buildPage() {
   document.body.prepend(createNavBar());
-  const content = document.querySelector('#content');
-  content.appendChild(loadHome());
+  loadPage(Home());
+  setActiveLink(document.querySelector('.home-link'));
 }
 
 buildPage()
