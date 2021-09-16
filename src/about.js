@@ -9,37 +9,24 @@ function createAbout() {
   about.appendChild(createAboutMain());
   return about;
 }
-// function createHomeBanner() {
-//   const text = document.createElement('div');
-//   text.classList.add('banner-text');
-//   text.appendChild(createTitle());
-//   text.appendChild(createHeadline());
-//   const banner = Helpers.createBanner(HomePlate, text);
-//   return banner;
-// }
-
-// function createHomeMain() {
-//   const main = document.createElement('main');
-//   main.classList.add('home-main');
-//   main.appendChild(createDescription());
-//   main.appendChild(createDescription());
-//   return main;
-// }
 
 function createAboutBanner() {
   const text = document.createElement('div');
   text.classList.add('banner-text');
+  text.appendChild(Helpers.createTitle('About Us'));
+  return Helpers.createBanner(AboutPlate, text);
 }
 
-function createTitle() {
-  const title = document.createElement('h1');
-  title.textContent = 'The Eagle\'s den';
-  title.classList.add('title');
-  return title;
-}
-
-function createAboutText() {
-  
+function createAboutMain() {
+  const main = document.createElement('main');
+  main.classList.add('home-main');
+  const p1 = document.createElement('p');
+  p1.textContent = Helpers.createDummyText();
+  const p2 = document.createElement('p');
+  p2.textContent = Helpers.createDummyText();
+  main.appendChild(p1);
+  main.appendChild(p2);
+  return main;
 }
 
 export default createAbout;

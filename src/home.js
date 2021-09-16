@@ -13,10 +13,9 @@ function createHome() {
 function createHomeBanner() {
   const text = document.createElement('div');
   text.classList.add('banner-text');
-  text.appendChild(Helpers.createTitle());
+  text.appendChild(Helpers.createTitle('The Eagle'));
   text.appendChild(createHeadline());
-  const banner = Helpers.createBanner(HomePlate, text);
-  return banner;
+  return Helpers.createBanner(HomePlate, text);
 }
 
 function createHomeMain() {
@@ -37,7 +36,6 @@ function createHeadline() {
 function createDescription() {
   const description = document.createElement('p');
   description.textContent = Helpers.createDummyText();
-  description.classList.add('description');
   return description;
 }
 

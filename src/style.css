@@ -95,9 +95,11 @@ nav a:not(:first-child) {
 
 main {
   width: 90%;
+  max-width: 80rem;
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 } 
 
 main p {
@@ -116,8 +118,11 @@ main p {
   }
   main {
     flex-direction: row;
-  }
+  } 
   main p {
-    margin: 1rem 3rem;
+    width: 30rem;
+    min-width: 10rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
