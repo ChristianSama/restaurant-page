@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import Home from './home';
 import About from './about';
 import Menu from './menu';
+import Contact from './contact';
 
 function createNavBar() {
   const nav = document.createElement('nav');
@@ -58,7 +59,7 @@ function createContactLink() {
   contactLink.classList.add('contact-link');
   contactLink.textContent = 'Contact us';
   contactLink.addEventListener('click', (e) => {
-    if  (e.target.classLink.contains('active')) return;
+    if  (e.target.classList.contains('active')) return;
     loadPage(Contact());
     setActiveLink(contactLink);
   })
