@@ -1,3 +1,9 @@
+:root {
+  --active-link-color: #522222;
+  --image-overlay-color: rgba(0,0,0,0.6);
+  --dish-bg-color: #ffede3;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +32,7 @@ nav a {
 
 nav a.active {
   text-decoration: underline;
-  color: #522222
+  color: var(--active-link-color)
 }
 
 nav a:hover {
@@ -74,7 +80,7 @@ nav a:not(:first-child) {
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: var(--image-overlay-color);
 }
 
 .banner-text {
@@ -106,6 +112,44 @@ main p {
   margin-bottom: 2rem;
 }
 
+.menu {
+  flex-direction: column;
+  width: 90%;
+  max-width: 60rem;
+  margin: 2rem auto;
+}
+
+.dish {
+  background-color: var(--dish-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.dish > img {
+  width: 280px;
+  height: 175px;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.dish-name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dish-price {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     justify-content: space-around;
@@ -123,6 +167,12 @@ main p {
     width: 30rem;
     min-width: 10rem;
     margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .dish {
+    flex-direction: row;
+  }
+  .dish > img {
     margin-right: 1rem;
   }
 }

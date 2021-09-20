@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import Home from './home';
 import About from './about';
+import Menu from './menu';
 
 function createNavBar() {
   const nav = document.createElement('nav');
@@ -47,7 +48,7 @@ function createMenuLink() {
   menuLink.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
     loadPage(Menu());
-    setActiveLink(menuLink());
+    setActiveLink(menuLink);
   })
   return menuLink;
 }
@@ -59,7 +60,7 @@ function createContactLink() {
   contactLink.addEventListener('click', (e) => {
     if  (e.target.classLink.contains('active')) return;
     loadPage(Contact());
-    setActiveLink(contactLink());
+    setActiveLink(contactLink);
   })
   return contactLink;
 }
