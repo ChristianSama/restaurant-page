@@ -84,6 +84,9 @@ function createExpandButton() {
   const button = document.createElement('button');
   button.classList.add('burger-icon');
   button.innerHTML = '<i class="fa fa-bars"></i>';
+  button.addEventListener('click', (e) => {
+    expandNavbar();
+  })
   return button;
 }
 
@@ -111,6 +114,13 @@ function buildPage() {
   loadPage(Home());
   setActiveLink(document.querySelector('.home-link'));
 }
+
+function expandNavbar() {
+  const navBar = document.querySelector('nav');
+  navBar.classList.toggle('responsive');
+}
+
+//TODO: Fix when screen grows beyond 768px while having the mobile navbar expanded
 
 buildPage()
 
