@@ -1,5 +1,5 @@
 import * as Helpers from './helpers';
-import AboutPlate from './ratatouille.jpg';
+import AboutPlate from './platillo6.jpg';
 
 function createAbout() {
   const about = document.createElement('div');

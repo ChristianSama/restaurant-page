@@ -1,5 +1,5 @@
 import * as Helpers from './helpers.js';
-import HomePlate from './platillo1_cropped.jpg';
+import HomePlate from './platillo1.jpg';
 
 function createHome() {
   const home = document.createElement('div');
